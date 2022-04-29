@@ -1,0 +1,24 @@
+package LiveProject;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+@Test
+public class Activity2 {
+
+public void validateHeading() {
+
+    System.setProperty("driver.chrome.driver","C:\\Windows\\System32\\chromedriver.exe");
+    WebDriver driver = new ChromeDriver();
+    driver.navigate().to("https://alchemy.hguy.co/jobs");
+    WebElement header= driver.findElement(By.xpath("//*[@class='entry-header ast-no-meta']//h1"));
+    System.out.println(header.getText());
+    Assert.assertEquals(header.getText(),"Welcome to Alchemy Jobs");
+    driver.close();
+}
+
+}
